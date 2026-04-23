@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VeeDee Agency – Più clienti per la tua attività locale</title>
+<meta name="description" content="VeeDee Agency aiuta artigiani, ristoratori e imprese locali a trovare più clienti online con siti web, social media e strategie digitali concrete.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+/* ============================
+   RESET & BASE
+   ============================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0D0D0D;
+  --surface:   #161616;
+  --card:      #1E1E1E;
+  --border:    #2A2A2A;
+  --accent:    #FF4D1C;
+  --accent2:   #FF8C69;
+  --white:     #F5F2ED;
+  --muted:     #8A8A8A;
+  --radius:    12px;
+  --max:       1160px;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================
+   TYPOGRAPHY
+   ============================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.025em; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; }
+h4 { font-size: 1.1rem; font-weight: 700; }
+
+.accent { color: var(--accent); }
+.muted  { color: var(--muted); }
+.tag {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(255,77,28,0.12);
+  border: 1px solid rgba(255,77,28,0.3);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  letter-spacing: 0.01em;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(255,77,28,0.35);
+}
+.btn-primary:hover { background: #ff3500; box-shadow: 0 12px 40px rgba(255,77,28,0.55); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+/* ============================
+   NAV
+   ============================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(13,13,13,0.85);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.3s;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+.logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links .btn { padding: 10px 22px; font-size: 0.85rem; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 99;
+  padding: 100px 24px 40px;
+  flex-direction: column;
+  gap: 32px;
+}
+.mobile-menu a {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 800;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+.mobile-menu.open { display: flex; }
+
+/* ============================
+   SECTIONS COMMON
+   ============================ */
+section { padding: 100px 0; }
+.section-intro {
+  max-width: 680px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+.section-intro p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-top: 16px;
+}
+
+/* ============================
+   HERO
+   ============================ */
+#hero {
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,77,28,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,77,28,0.1);
+  border: 1px solid rgba(255,77,28,0.25);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  color: var(--accent2);
+  margin-bottom: 28px;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.hero-title { max-width: 840px; margin-bottom: 24px; }
+.hero-sub {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-bottom: 42px;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.avatars {
+  display: flex;
+}
+.avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--card);
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.avatar:first-child { margin-left: 0; }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 64px;
+}
+.stat-item {
+  background: var(--surface);
+  padding: 28px 32px;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-head);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+}
+.stat-label { color: var(--muted); font-size: 0.88rem; margin-top: 4px; }
+
+/* ============================
+   CLIENTI / SETTORI
+   ============================ */
+#settori { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.settori-label {
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.settori-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.settore-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.settore-chip:hover { border-color: var(--accent); color: var(--white); }
+.settore-chip .emoji { font-size: 1rem; }
+
+/* ============================
+   COME FUNZIONA
+   ============================ */
+#come-funziona { background: var(--surface); }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.step {
+  background: var(--card);
+  padding: 40px 32px;
+  position: relative;
+}
+.step-num {
+  font-family: var(--font-head);
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(255,77,28,0.15);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.step h4 { margin-bottom: 10px; color: var(--white); }
+.step p { color: var(--muted); font-size: 0.95rem; }
+
+/* ============================
+   SERVIZI
+   ============================ */
+#servizi {}
+.servizi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.card-icon {
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  background: rgba(255,77,28,0.1);
+  border: 1px solid rgba(255,77,28,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+.card h3 { margin-bottom: 12px; }
+.card p { color: var(--muted); margin-bottom: 20px; font-size: 0.95rem; }
+.card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.feature-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.feature-row::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.card-highlight {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--card) 0%, rgba(255,77,28,0.06) 100%);
+}
+.card-badge {
+  position: absolute;
+  top: -14px; right: 24px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* ============================
+   PERCHÉ VEEDEE
+   ============================ */
+#perche { background: var(--surface); }
+.perche-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.perche-left h2 { margin-bottom: 20px; }
+.perche-left p { color: var(--muted); margin-bottom: 32px; font-size: 1.05rem; }
+.perche-items { display: flex; flex-direction: column; gap: 20px; }
+.perche-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.perche-dot {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(255,77,28,0.1);
+  border: 1px solid rgba(255,77,28,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.perche-item h4 { margin-bottom: 4px; }
+.perche-item p { color: var(--muted); font-size: 0.92rem; }
+
+.vs-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.vs-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.vs-col {
+  padding: 18px 20px;
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.vs-col.bad { background: rgba(255,255,255,0.04); color: var(--muted); }
+.vs-col.good { background: var(--accent); color: #fff; }
+.vs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.vs-cell {
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vs-cell.bad { color: var(--muted); }
+.vs-cell.good { color: var(--white); }
+.vs-cell.bad::before { content: "✗"; color: #555; }
+.vs-cell.good::before { content: "✓"; color: var(--accent); }
+.vs-cell.bad { border-right: 1px solid var(--border); }
+
+/* ============================
+   RISULTATI
+   ============================ */
+#risultati {}
+.risultati-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.risultato-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.risultato-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.ris-icon { font-size: 2rem; margin-bottom: 16px; }
+.ris-num {
+  font-family: var(--font-head);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  margin-bottom: 4px;
+}
+.ris-label { color: var(--white); font-weight: 600; margin-bottom: 8px; }
+.ris-desc { color: var(--muted); font-size: 0.88rem; }
+
+/* ============================
+   PORTFOLIO
+   ============================ */
+#portfolio { background: var(--surface); }
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.portfolio-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.portfolio-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.portfolio-thumb {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-thumb-1 { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.portfolio-thumb-2 { background: linear-gradient(135deg, #1a2010, #2d3e1a); }
+.portfolio-thumb-3 { background: linear-gradient(135deg, #1a0a0a, #3e1010); }
+.portfolio-thumb-4 { background: linear-gradient(135deg, #0a1a2e, #0d2244); }
+.portfolio-thumb-5 { background: linear-gradient(135deg, #1a120a, #3e2a0d); }
+.portfolio-thumb-6 { background: linear-gradient(135deg, #0a0a1a, #1a1030); }
+.portfolio-body { padding: 24px; }
+.portfolio-body .settore {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.portfolio-body h4 { margin-bottom: 8px; }
+.portfolio-body p { color: var(--muted); font-size: 0.88rem; margin-bottom: 16px; }
+.portfolio-tag {
+  display: inline-block;
+  background: rgba(255,77,28,0.1);
+  border: 1px solid rgba(255,77,28,0.2);
+  color: var(--accent2);
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin: 2px;
+}
+
+/* ============================
+   PREZZI
+   ============================ */
+#prezzi {}
+.prezzi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.prezzo-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.prezzo-card:hover { border-color: var(--accent); }
+.prezzo-card.featured {
+  border-color: var(--accent);
+  background: linear-gradient(160deg, var(--card) 0%, rgba(255,77,28,0.07) 100%);
+  transform: scale(1.02);
+}
+.price-category {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.price-name { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; margin-bottom: 16px; }
+.price-amount {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.price-eur {
+  font-family: var(--font-head);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.price-period { color: var(--muted); font-size: 0.9rem; padding-bottom: 6px; }
+.price-promo {
+  background: rgba(255,77,28,0.12);
+  border: 1px solid rgba(255,77,28,0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--accent2);
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+.price-features { display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+.price-feature {
+  display: flex;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  align-items: flex-start;
+}
+.price-feature::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.price-note {
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.price-custom {
+  text-align: center;
+  padding: 28px;
+}
+.price-custom .price-eur { font-size: 2rem; color: var(--white); }
+.price-range { color: var(--muted); font-size: 0.88rem; margin-top: 8px; }
+
+/* ============================
+   CHI SIAMO
+   ============================ */
+#chi-siamo { background: var(--surface); }
+.chi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.chi-text h2 { margin-bottom: 20px; }
+.chi-text p { color: var(--muted); margin-bottom: 16px; font-size: 1.02rem; }
+.chi-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+.value-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.value-icon { font-size: 1.4rem; margin-bottom: 10px; }
+.value-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
+.value-item p { font-size: 0.83rem; color: var(--muted); }
+
+.team-card-big {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  text-align: center;
+}
+.team-avatar-big {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: rgba(255,77,28,0.15);
+  border: 2px solid rgba(255,77,28,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 0 auto 20px;
+}
+.team-card-big h3 { margin-bottom: 6px; }
+.team-role { color: var(--accent); font-size: 0.88rem; font-weight: 600; margin-bottom: 16px; }
+.team-bio { color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+
+/* ============================
+   FAQ
+   ============================ */
+#faq {}
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq-question {
+  padding: 22px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background 0.2s;
+  background: var(--card);
+}
+.faq-question:hover { background: rgba(255,77,28,0.06); }
+.faq-toggle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255,77,28,0.1);
+  border: 1px solid rgba(255,77,28,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s;
+  background: var(--surface);
+  padding: 0 28px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.faq-item.open .faq-answer { max-height: 300px; padding: 20px 28px; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+/* ============================
+   TESTIMONIALS
+   ============================ */
+#testimonianze { background: var(--surface); }
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.test-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.stars { color: var(--accent); font-size: 1rem; margin-bottom: 14px; }
+.test-quote {
+  font-size: 0.97rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: var(--white);
+}
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.test-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,77,28,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.88rem;
+  flex-shrink: 0;
+}
+.test-name { font-weight: 700; font-size: 0.92rem; }
+.test-job { color: var(--muted); font-size: 0.8rem; }
+
+/* ============================
+   CTA BANNER
+   ============================ */
+#cta-banner {
+  padding: 100px 0;
+}
+.cta-inner {
+  background: linear-gradient(135deg, rgba(255,77,28,0.15) 0%, rgba(255,77,28,0.06) 50%, var(--card) 100%);
+  border: 1px solid rgba(255,77,28,0.25);
+  border-radius: 20px;
+  padding: 72px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner::before {
+  content: "";
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(circle, rgba(255,77,28,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner h2 { margin-bottom: 16px; }
+.cta-inner p { color: var(--muted); max-width: 520px; margin: 0 auto 36px; font-size: 1.05rem; }
+.cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.cta-disclaimer { color: var(--muted); font-size: 0.82rem; margin-top: 18px; }
+
+/* ============================
+   CONTATTI
+   ============================ */
+#contatti {}
+.contatti-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+.contatti-info h2 { margin-bottom: 16px; }
+.contatti-info p { color: var(--muted); margin-bottom: 36px; font-size: 1.02rem; }
+.contatti-items { display: flex; flex-direction: column; gap: 20px; }
+.contatti-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.contatti-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(255,77,28,0.1);
+  border: 1px solid rgba(255,77,28,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.contatti-item h4 { margin-bottom: 2px; font-size: 0.95rem; }
+.contatti-item p { color: var(--muted); font-size: 0.9rem; }
+.contatti-item a { color: var(--accent2); }
+
+.form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+.form-card h3 { margin-bottom: 24px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 7px;
+  letter-spacing: 0.03em;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--accent); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted); }
+.form-group select option { background: var(--surface); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.form-check input { width: auto; flex-shrink: 0; margin-top: 3px; }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 32px;
+}
+.form-success .emoji { font-size: 3rem; margin-bottom: 12px; }
+.form-success h4 { margin-bottom: 8px; }
+.form-success p { color: var(--muted); font-size: 0.92rem; }
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 64px 0 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 12px;
+  max-width: 280px;
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--white); }
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p { color: var(--muted); font-size: 0.83rem; }
+.social-links { display: flex; gap: 10px; }
+.social-btn {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.social-btn:hover { border-color: var(--accent); background: rgba(255,77,28,0.1); }
+
+/* ============================
+   SCROLL ANIMATIONS
+   ============================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .perche-grid { grid-template-columns: 1fr; gap: 40px; }
+  .chi-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contatti-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .chi-values { grid-template-columns: 1fr; }
+  .cta-inner { padding: 48px 28px; }
+  section { padding: 70px 0; }
+}
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .prezzi-grid { grid-template-columns: 1fr; }
+  .prezzo-card.featured { transform: none; }
+  .hero-cta { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#hero" class="logo">VeeDee<span>.</span></a>
+    <div class="nav-links">
+      <a href="#servizi">Servizi</a>
+      <a href="#portfolio">Progetti</a>
+      <a href="#prezzi">Prezzi</a>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#contatti" class="btn btn-primary">Contattaci</a>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#servizi" onclick="toggleMenu()">Servizi</a>
+  <a href="#portfolio" onclick="toggleMenu()">Progetti</a>
+  <a href="#prezzi" onclick="toggleMenu()">Prezzi</a>
+  <a href="#chi-siamo" onclick="toggleMenu()">Chi siamo</a>
+  <a href="#contatti" onclick="toggleMenu()" style="color: var(--accent)">Contattaci →</a>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Prima settimana gratuita · Nessun vincolo
+    </div>
+    <h1 class="hero-title reveal">
+      Fai trovare la tua attività<br>da <span class="accent">chi cerca</span> quello che fai.
+    </h1>
+    <p class="hero-sub reveal">
+      Siti web, social media e visibilità online per artigiani, ristoratori e imprese locali. Niente tecnicismi: solo più clienti, più telefonate, più lavoro.
+    </p>
+    <div class="hero-cta reveal">
+      <a href="#contatti" class="btn btn-primary">🚀 Prova gratis 1 settimana</a>
+      <a href="#servizi" class="btn btn-outline">Scopri come funziona</a>
+    </div>
+    <div class="hero-social-proof reveal">
+      <div class="avatars">
+        <div class="avatar">GF</div>
+        <div class="avatar">MP</div>
+        <div class="avatar">SR</div>
+        <div class="avatar">LB</div>
+      </div>
+      <span>Oltre 30 attività locali già online con VeeDee</span>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat-item">
+        <div class="stat-num">+80%</div>
+        <div class="stat-label">Richieste in più nei primi 3 mesi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">48h</div>
+        <div class="stat-label">Tempo medio per partire</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100€</div>
+        <div class="stat-label">Primo mese social media</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SETTORI ==================== -->
+<section id="settori">
+  <div class="container">
+    <p class="settori-label">Lavoriamo con</p>
+    <div class="settori-grid">
+      <div class="settore-chip"><span class="emoji">🍕</span> Ristoranti & Bar</div>
+      <div class="settore-chip"><span class="emoji">🔨</span> Artigiani</div>
+      <div class="settore-chip"><span class="emoji">🏗️</span> Imprese Edili</div>
+      <div class="settore-chip"><span class="emoji">💇</span> Centri Estetici</div>
+      <div class="settore-chip"><span class="emoji">🛠️</span> Idraulici & Elettricisti</div>
+      <div class="settore-chip"><span class="emoji">🌿</span> Giardinieri</div>
+      <div class="settore-chip"><span class="emoji">🚗</span> Officine Auto</div>
+      <div class="settore-chip"><span class="emoji">🏪</span> Negozi Locali</div>
+      <div class="settore-chip"><span class="emoji">🐾</span> Toelettatori</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COME FUNZIONA ==================== -->
+<section id="come-funziona">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">Come funziona</div>
+      <h2>Parti in 4 passi.<br>Senza grattacapi.</h2>
+      <p>Non devi capire niente di marketing. Ci pensiamo noi. Tu continua a fare il tuo lavoro.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Ci parli</h4>
+        <p>Una telefonata o un messaggio. Ci racconti la tua attività, i tuoi clienti, cosa vorresti migliorare. 20 minuti.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Ti proponiamo un piano</h4>
+        <p>Ti diciamo esattamente cosa faremo, quanto costerà e cosa ti aspetti in termini di risultati. Nessuna sorpresa.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Iniziamo (gratis)</h4>
+        <p>La prima settimana è gratuita. Publichiamo, ottimizziamo, costruiamo. Vedi con i tuoi occhi come lavoriamo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Arrivano i clienti</h4>
+        <p>Dal secondo mese continui solo se sei soddisfatto. Nessun contratto annuale, nessun vincolo nascosto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVIZI ==================== -->
+<section id="servizi">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">Servizi</div>
+      <h2>Cosa facciamo<br>per la tua attività</h2>
+      <p>Tre soluzioni concrete. Ognuna pensata per portarti più clienti, non per sembrare figa sulla carta.</p>
+    </div>
+    <div class="servizi-grid">
+
+      <div class="card reveal">
+        <div class="card-icon">🌐</div>
+        <h3>Sito Web Professionale</h3>
+        <p>Un sito che convince i tuoi futuri clienti a sceglierti, costruito per essere trovato su Google e funzionare su ogni dispositivo.</p>
+        <div class="card-features">
+          <div class="feature-row">Design su misura per la tua attività</div>
+          <div class="feature-row">Ottimizzato per Google (SEO locale)</div>
+          <div class="feature-row">Veloce, sicuro e mobile-first</div>
+          <div class="feature-row">Modulo contatti e pulsante WhatsApp</div>
+          <div class="feature-row">Fotografie e testi inclusi nel pacchetto personalizzato</div>
+        </div>
+      </div>
+
+      <div class="card card-highlight reveal">
+        <div class="card-badge">⭐ Più richiesto</div>
+        <div class="card-icon">📱</div>
+        <h3>Gestione Social Media</h3>
+        <p>Un contenuto ogni settimana, gestione dei commenti e messaggi, crescita del profilo. Tu non tocchi nulla.</p>
+        <div class="card-features">
+          <div class="feature-row">1 post/reel a settimana (foto + testo)</div>
+          <div class="feature-row">Gestione commenti e messaggi diretti</div>
+          <div class="feature-row">Reportistica mensile semplice</div>
+          <div class="feature-row">Strategia contenuti personalizzata</div>
+          <div class="feature-row">Prima settimana gratuita</div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">📈</div>
+        <h3>Miglioramento Social</h3>
+        <p>Hai già un profilo ma non porta risultati? Lo sistemiamo, ottimizziamo e ti insegniamo a usarlo bene.</p>
+        <div class="card-features">
+          <div class="feature-row">Ottimizzazione completa del profilo</div>
+          <div class="feature-row">Strategia contenuti per i prossimi 3 mesi</div>
+          <div class="feature-row">Analisi della concorrenza locale</div>
+          <div class="feature-row">Template grafici per fare da soli</div>
+          <div class="feature-row">Sessione di formazione inclusa</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PERCHÉ VEEDEE ==================== -->
+<section id="perche">
+  <div class="container">
+    <div class="perche-grid">
+      <div class="perche-left reveal">
+        <div class="tag">Perché sceglierci</div>
+        <h2>Non siamo un'agenzia. Siamo il tuo ufficio marketing.</h2>
+        <p>Le grandi agenzie ti trattano come un numero. Noi lavoriamo solo con piccole imprese locali e conosciamo le tue sfide meglio di chiunque altro.</p>
+        <div class="perche-items">
+          <div class="perche-item">
+            <div class="perche-dot">🎯</div>
+            <div>
+              <h4>Solo risultati concreti</h4>
+              <p>Non vendiamo "strategie" o "visibilità". Vendiamo più clienti che ti chiamano o vengono da te.</p>
+            </div>
+          </div>
+          <div class="perche-item">
+            <div class="perche-dot">🗣️</div>
+            <div>
+              <h4>Parliamo chiaro</h4>
+              <p>Niente inglesismi, niente tecnicismi. Ti spieghiamo tutto con parole normali.</p>
+            </div>
+          </div>
+          <div class="perche-item">
+            <div class="perche-dot">🔓</div>
+            <div>
+              <h4>Nessun vincolo</h4>
+              <p>Niente contratti annuali. Se non sei soddisfatto, smetti quando vuoi. Semplice.</p>
+            </div>
+          </div>
+          <div class="perche-item">
+            <div class="perche-dot">⚡</div>
+            <div>
+              <h4>Partiamo subito</h4>
+              <p>In 48 ore siamo operativi. Niente riunioni infinite, niente mesi di "strategia preliminare".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="vs-box">
+          <div class="vs-header">
+            <div class="vs-col bad">Altre agenzie</div>
+            <div class="vs-col good">VeeDee Agency</div>
+          </div>
+          <div class="vs-row">
+            <div class="vs-cell bad">Contratti annuali</div>
+            <div class="vs-cell good">Mensile, disdici quando vuoi</div>
+          </div>
+          <div class="vs-row">
+            <div class="vs-cell bad">Report incomprensibili</div>
+            <div class="vs-cell good">Risultati in chiaro ogni mese</div>
+          </div>
+          <div class="vs-row">
+            <div class="vs-cell bad">Parti dopo 4-6 settimane</div>
+            <div class="vs-cell good">Online in 48 ore</div>
+          </div>
+          <div class="vs-row">
+            <div class="vs-cell bad">Prezzi da grande agenzia</div>
+            <div class="vs-cell good">Prezzi per le PMI vere</div>
+          </div>
+          <div class="vs-row">
+            <div class="vs-cell bad">Template uguali per tutti</div>
+            <div class="vs-cell good">Su misura per te</div>
+          </div>
+          <div class="vs-row">
+            <div class="vs-cell bad">Nessuna prova gratuita</div>
+            <div class="vs-cell good">Prima settimana gratis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RISULTATI ==================== -->
+<section id="risultati">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">Risultati</div>
+      <h2>Cosa succede dopo<br>che iniziamo a lavorare</h2>
+      <p>Questi sono risultati reali dei nostri clienti. Non promesse, non stime. Numeri veri.</p>
+    </div>
+    <div class="risultati-grid">
+      <div class="risultato-card reveal">
+        <div class="ris-icon">📞</div>
+        <div class="ris-num">+3x</div>
+        <div class="ris-label">Chiamate e richieste</div>
+        <div class="ris-desc">In media triplicano le richieste dirette entro il primo trimestre.</div>
+      </div>
+      <div class="risultato-card reveal">
+        <div class="ris-icon">👁️</div>
+        <div class="ris-num">+250%</div>
+        <div class="ris-label">Profilo visto di più</div>
+        <div class="ris-desc">Le visite al profilo Instagram e alla scheda Google crescono stabilmente.</div>
+      </div>
+      <div class="risultato-card reveal">
+        <div class="ris-icon">🗺️</div>
+        <div class="ris-num">Top 3</div>
+        <div class="ris-label">Su Google Maps locale</div>
+        <div class="ris-desc">Con l'ottimizzazione SEO locale appari tra i primi risultati per chi cerca nella tua zona.</div>
+      </div>
+      <div class="risultato-card reveal">
+        <div class="ris-icon">🤝</div>
+        <div class="ris-label">Clienti ricorrenti</div>
+        <div class="ris-num">+60%</div>
+        <div class="ris-desc">I social media mantengono il contatto con chi ti ha già scelto, facendolo tornare.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PORTFOLIO ==================== -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">Progetti</div>
+      <h2>Attività come la tua,<br>già online con noi</h2>
+      <p>Esempi reali di cosa abbiamo fatto per i nostri clienti. Dal ristorante sotto casa all'artigiano di terza generazione.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb portfolio-thumb-1">🍕</div>
+        <div class="portfolio-body">
+          <div class="settore">Ristorazione</div>
+          <h4>Pizzeria Napoletana "Da Salvatore"</h4>
+          <p>Sito web + gestione Instagram. Da 80 a 280 follower in 2 mesi e lista d'attesa il weekend.</p>
+          <span class="portfolio-tag">Sito Web</span>
+          <span class="portfolio-tag">Social Media</span>
+          <span class="portfolio-tag">+200 follower</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb portfolio-thumb-2">🌿</div>
+        <div class="portfolio-body">
+          <div class="settore">Giardinaggio</div>
+          <h4>Verde & Fiori – Giardini Professionali</h4>
+          <p>Ottimizzazione profilo Instagram e sito web. Triplicati i preventivi richiesti in 3 mesi.</p>
+          <span class="portfolio-tag">Sito Web</span>
+          <span class="portfolio-tag">Miglioramento Social</span>
+          <span class="portfolio-tag">+3x Preventivi</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb portfolio-thumb-3">🔨</div>
+        <div class="portfolio-body">
+          <div class="settore">Artigianato</div>
+          <h4>Falegnameria Rossi – Su Misura dal 1985</h4>
+          <p>Sito web con portfolio lavori e modulo preventivi. Prima del sito: zero richieste online. Oggi: 8-10 al mese.</p>
+          <span class="portfolio-tag">Sito Web</span>
+          <span class="portfolio-tag">SEO Locale</span>
+          <span class="portfolio-tag">Da 0 a 10 lead/mese</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb portfolio-thumb-4">🏗️</div>
+        <div class="portfolio-body">
+          <div class="settore">Edilizia</div>
+          <h4>Costruzioni Bianchi SRL</h4>
+          <p>Restyling sito + pagina Facebook. Più di 15 nuovi contatti qualificati nel primo mese.</p>
+          <span class="portfolio-tag">Sito Web</span>
+          <span class="portfolio-tag">Facebook</span>
+          <span class="portfolio-tag">15 nuovi contatti</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb portfolio-thumb-5">💇</div>
+        <div class="portfolio-body">
+          <div class="settore">Benessere</div>
+          <h4>Centro Estetico Glow</h4>
+          <p>Gestione Instagram con contenuti settimanali. Prenotazioni online raddoppiate in 6 settimane.</p>
+          <span class="portfolio-tag">Instagram</span>
+          <span class="portfolio-tag">Gestione Social</span>
+          <span class="portfolio-tag">+100% Prenotazioni</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb portfolio-thumb-6">🚗</div>
+        <div class="portfolio-body">
+          <div class="settore">Automotive</div>
+          <h4>Autofficina Martinelli</h4>
+          <p>Scheda Google ottimizzata e sito semplice. Ora appare primo su Google per "officina [città]".</p>
+          <span class="portfolio-tag">SEO Locale</span>
+          <span class="portfolio-tag">Google My Business</span>
+          <span class="portfolio-tag">Posizione #1</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PREZZI ==================== -->
+<section id="prezzi">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">Prezzi</div>
+      <h2>Chiari, fissi,<br>senza brutte sorprese.</h2>
+      <p>Niente costi nascosti, niente supplementi improvvisi. Sai esattamente cosa paghi e cosa ricevi.</p>
+    </div>
+    <div class="prezzi-grid">
+
+      <!-- SOCIAL: starter -->
+      <div class="prezzo-card reveal">
+        <div class="price-category">Social Media</div>
+        <div class="price-name">Starter</div>
+        <div class="price-amount">
+          <div class="price-eur">100€</div>
+          <div class="price-period">/ primo mese</div>
+        </div>
+        <div class="price-promo">🎁 Prima settimana completamente gratuita</div>
+        <div class="divider"></div>
+        <div class="price-features">
+          <div class="price-feature">1 post o reel a settimana</div>
+          <div class="price-feature">Testo e grafica professionale</div>
+          <div class="price-feature">Gestione commenti e DM</div>
+          <div class="price-feature">Report mensile semplice</div>
+          <div class="price-feature">Canale diretto con noi via WhatsApp</div>
+        </div>
+        <div class="price-note">📌 Dal secondo mese: <strong style="color:var(--white)">150€/mese</strong>. Nessun contratto annuale.</div>
+        <a href="#contatti" class="btn btn-outline" style="width:100%; justify-content:center;">Inizia gratis →</a>
+      </div>
+
+      <!-- SOCIAL: featured -->
+      <div class="prezzo-card featured reveal">
+        <div class="card-badge">⭐ Consigliato</div>
+        <div class="price-category">Social Media</div>
+        <div class="price-name">Continuativo</div>
+        <div class="price-amount">
+          <div class="price-eur">150€</div>
+          <div class="price-period">/ mese</div>
+        </div>
+        <div class="price-promo">✅ Dal secondo mese in poi · Disdici quando vuoi</div>
+        <div class="divider"></div>
+        <div class="price-features">
+          <div class="price-feature">Tutto del piano Starter</div>
+          <div class="price-feature">Strategia contenuti aggiornata</div>
+          <div class="price-feature">Analisi crescita e ottimizzazione</div>
+          <div class="price-feature">Contenuti stagionali e promozioni</div>
+          <div class="price-feature">Risposta entro 4 ore lavorative</div>
+        </div>
+        <div class="price-note">💡 Puoi sospendere in qualsiasi momento, senza penali.</div>
+        <a href="#contatti" class="btn btn-primary" style="width:100%; justify-content:center;">Richiedi info →</a>
+      </div>
+
+      <!-- SITI WEB -->
+      <div class="prezzo-card reveal">
+        <div class="price-category">Sito Web</div>
+        <div class="price-name">Pacchetti Sito</div>
+        <div class="price-custom">
+          <div class="price-eur">Da 299€</div>
+          <div class="price-range">fino a soluzioni personalizzate</div>
+        </div>
+        <div class="divider"></div>
+        <div class="price-features">
+          <div class="price-feature"><strong style="color:var(--white)">Base:</strong> sito vetrina professionale, 4-5 pagine, mobile-friendly, contatti</div>
+          <div class="price-feature"><strong style="color:var(--white)">Personalizzato:</strong> design su misura, testi e foto, SEO locale, blog, preventivi online</div>
+          <div class="price-feature">Dominio e hosting inclusi il primo anno (pacchetto personalizzato)</div>
+          <div class="price-feature">Consegna in 5-10 giorni lavorativi</div>
+        </div>
+        <div class="price-note">📞 Il prezzo dipende dalla complessità. Scrivici per un preventivo gratuito in 24h.</div>
+        <a href="#contatti" class="btn btn-ghost" style="width:100%; justify-content:center;">Preventivo gratuito →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIANZE ==================== -->
+<section id="testimonianze">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">Testimonianze</div>
+      <h2>Lo dicono i nostri clienti</h2>
+      <p>Parole loro. Nessun testimonial inventato, nessuna storia gonfiata.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">"Prima non avevo neanche un sito. Adesso ricevo richieste online ogni settimana. Non ci credevo fosse così semplice."</p>
+        <div class="test-author">
+          <div class="test-avatar">GF</div>
+          <div>
+            <div class="test-name">Giuseppe Ferrara</div>
+            <div class="test-job">Falegname, Modena</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">"In due mesi il mio Instagram è passato da 90 a 400 follower. Il sabato sera ho la sala piena. È tutto merito loro."</p>
+        <div class="test-author">
+          <div class="test-avatar">MP</div>
+          <div>
+            <div class="test-name">Marco Palumbo</div>
+            <div class="test-job">Ristoratore, Bologna</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">"Pensavo che i social fossero roba per i giovani. VeeDee mi ha fatto capire che anche un'impresa edile può trovare clienti così."</p>
+        <div class="test-author">
+          <div class="test-avatar">LB</div>
+          <div>
+            <div class="test-name">Luca Bianchi</div>
+            <div class="test-job">Costruzioni, Ferrara</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHI SIAMO ==================== -->
+<section id="chi-siamo">
+  <div class="container">
+    <div class="chi-grid">
+      <div class="chi-text reveal">
+        <div class="tag">Chi siamo</div>
+        <h2>Siamo quelli che ti rispondono al telefono.</h2>
+        <p>VeeDee Agency è nata da una constatazione semplice: le piccole imprese italiane fanno un lavoro eccellente, ma nessuno le trova online. Abbiamo deciso di cambiare questa situazione.</p>
+        <p>Non siamo una grande agenzia con 50 dipendenti e clienti multinazionali. Siamo un team piccolo, diretto, appassionato del lavoro artigianale e locale. Ogni cliente è per noi una storia da raccontare e un risultato da ottenere.</p>
+        <p>Il nostro obiettivo è uno solo: farti trovare dalle persone giuste, nel momento giusto.</p>
+        <div class="chi-values">
+          <div class="value-item">
+            <div class="value-icon">🎯</div>
+            <h4>Risultati prima di tutto</h4>
+            <p>Non ci interessano i "like". Ci interessano i tuoi clienti.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🤝</div>
+            <h4>Rapporto diretto</h4>
+            <p>Parli sempre con noi, non con un junior a caso.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">💡</div>
+            <h4>Semplicità</h4>
+            <p>Rendiamo semplice quello che sembra complicato.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📍</div>
+            <h4>Territorio</h4>
+            <p>Conosciamo il mercato locale. Lavoriamo in Italia, per l'Italia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="team-card-big">
+          <div class="team-avatar-big">VD</div>
+          <h3>Il Team VeeDee</h3>
+          <div class="team-role">Digital Marketing per il Made in Italy locale</div>
+          <p class="team-bio">Siamo un team di professionisti del digitale con una passione comune: far crescere le piccole imprese italiane. Combiniamo competenze in web design, copywriting, social media management e SEO locale. Ogni cliente che acquistiamo un preventivo in più è una piccola vittoria di cui andiamo fieri.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;">
+          <div class="card" style="padding:20px; text-align:center;">
+            <div style="font-size:1.8rem; margin-bottom:6px;">30+</div>
+            <div style="color:var(--muted);font-size:0.82rem;">Clienti attivi</div>
+          </div>
+          <div class="card" style="padding:20px; text-align:center;">
+            <div style="font-size:1.8rem; margin-bottom:6px;">3 anni</div>
+            <div style="color:var(--muted);font-size:0.82rem;">Di esperienza</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq" style="background: var(--bg);">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="tag">FAQ</div>
+      <h2>Le domande che ci fanno<br>tutti i giorni</h2>
+      <p>Risposte vere, senza giri di parole.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Come funziona la settimana gratuita?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Semplice: lavoriamo gratis per 7 giorni. Publichiamo contenuti, ottimizziamo il profilo, ti facciamo vedere concretamente come operiamo. Poi decidi tu se continuare. Se dici no, ti ringraziamo e non ci devi niente.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Devo sapere qualcosa di marketing o social media?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Assolutamente no. Basta che tu sapcia fare bene il tuo mestiere — del resto ci occupiamo noi. Ti chiediamo solo foto del tuo lavoro (se vuoi) e di rispondere a qualche domanda all'inizio per capire chi sei e chi sono i tuoi clienti ideali.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Posso smettere quando voglio?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Sì, completamente. Niente contratti annuali, niente penali, niente preavvisi di mesi. Se il mese scorso era ok e questo mese vuoi fermarti, ti basta dirmelo entro il 25 del mese. È semplice come sembra.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Quanto tempo ci vuole per vedere i risultati?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          I primi miglioramenti si vedono già nel primo mese (più visite, più interazioni, profilo più curato). Risultati concreti in termini di clienti e richieste arrivano solitamente tra il secondo e terzo mese. Non promettiamo miracoli, promettiamo lavoro costante e crescita vera.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Il prezzo del sito web è unico o ci sono costi ricorrenti?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Il sito si paga una volta. Ci sono poi costi annuali di hosting e dominio (circa 60-100€/anno, inclusi nel primo anno nel pacchetto personalizzato). Nessun'altra sorpresa.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Gestite anche Facebook oltre a Instagram?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Sì. La gestione può coprire Instagram, Facebook o entrambi in base alla tua attività e al tuo pubblico. Te lo consigliamo noi dopo aver capito meglio dove si trovano i tuoi clienti ideali.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Cosa succede se non mi piacciono i contenuti che create?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Prima di pubblicare qualsiasi cosa, te la mostriamo. Hai diritto a richiedere modifiche. Lavoriamo insieme finché non sei soddisfatto. Il tuo profilo è la tua faccia — per noi è importante che rappresenti davvero te.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BANNER ==================== -->
+<section id="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="tag" style="display:inline-block;">Inizia oggi</div>
+      <h2>Smetti di perdere clienti<br>che cercano qualcuno come te.</h2>
+      <p>Ogni giorno che passi senza essere online, qualcun altro prende il tuo cliente. La prima settimana è gratis: non hai niente da perdere.</p>
+      <div class="cta-buttons">
+        <a href="#contatti" class="btn btn-primary" style="font-size:1rem; padding:16px 36px;">🚀 Inizia gratis ora</a>
+        <a href="https://wa.me/39XXXXXXXXXX" class="btn btn-outline">💬 Scrivici su WhatsApp</a>
+      </div>
+      <p class="cta-disclaimer">Nessun contratto · Prima settimana gratis · Risposta entro 24h</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTATTI ==================== -->
+<section id="contatti" style="background: var(--surface);">
+  <div class="container">
+    <div class="contatti-grid">
+      <div class="contatti-info reveal">
+        <div class="tag">Contatti</div>
+        <h2>Parliamoci.<br>È gratis anche questo.</h2>
+        <p>Scrivici o chiamaci. Ti rispondiamo entro 24 ore. Nessun venditore aggressivo, nessuna telefonata commerciale. Solo una chiacchierata per capire se possiamo aiutarti.</p>
+        <div class="contatti-items">
+          <div class="contatti-item">
+            <div class="contatti-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:ciao@veedeeagency.it">ciao@veedeeagency.it</a></p>
+            </div>
+          </div>
+          <div class="contatti-item">
+            <div class="contatti-icon">📱</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/39XXXXXXXXXX">+39 XXX XXX XXXX</a></p>
+            </div>
+          </div>
+          <div class="contatti-item">
+            <div class="contatti-icon">📍</div>
+            <div>
+              <h4>Dove siamo</h4>
+              <p>Italia — Lavoriamo in tutta la penisola, anche da remoto.</p>
+            </div>
+          </div>
+          <div class="contatti-item">
+            <div class="contatti-icon">⏰</div>
+            <div>
+              <h4>Orari</h4>
+              <p>Lun–Ven: 9:00–18:30<br>Sab: 9:00–13:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3>Mandaci un messaggio</h3>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome *</label>
+              <input type="text" id="fname" placeholder="Mario">
+            </div>
+            <div class="form-group">
+              <label>Cognome *</label>
+              <input type="text" id="lname" placeholder="Rossi">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Attività *</label>
+            <input type="text" id="business" placeholder="Pizzeria Da Mario, Ferrara">
+          </div>
+          <div class="form-group">
+            <label>Servizio di interesse</label>
+            <select id="service">
+              <option value="">— Seleziona —</option>
+              <option>Social Media (gestione)</option>
+              <option>Sito Web</option>
+              <option>Miglioramento Social</option>
+              <option>Non so ancora, voglio capire</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Messaggio</label>
+            <textarea id="message" placeholder="Raccontaci brevemente la tua attività e cosa vorresti migliorare..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Email o Telefono *</label>
+            <input type="text" id="contact" placeholder="mario@email.it o 333 123 4567">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="privacy">
+            <label for="privacy">Accetto il trattamento dei dati personali per ricevere informazioni sui servizi VeeDee Agency.</label>
+          </div>
+          <button class="btn btn-primary" onclick="submitForm()" style="width:100%; justify-content:center; font-size:1rem; padding:15px;">
+            Invia il messaggio →
+          </button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="emoji">🎉</div>
+          <h4>Messaggio ricevuto!</h4>
+          <p>Ti risponderemo entro 24 ore. Nel frattempo puoi scriverci anche su WhatsApp per una risposta più veloce.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">VeeDee<span style="color:var(--accent)">.</span></div>
+        <p>Aiutiamo le piccole imprese locali a trovare più clienti online. Siti web, social media e visibilità digitale. Semplice, concreto, misurabile.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <ul>
+          <li><a href="#servizi">Social Media</a></li>
+          <li><a href="#servizi">Siti Web</a></li>
+          <li><a href="#servizi">Miglioramento Social</a></li>
+          <li><a href="#prezzi">Prezzi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Agenzia</h4>
+        <ul>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonianze">Testimonianze</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:ciao@veedeeagency.it">ciao@veedeeagency.it</a></li>
+          <li><a href="https://wa.me/39XXXXXXXXXX">WhatsApp</a></li>
+          <li><a href="#contatti">Modulo contatti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 VeeDee Agency. P.IVA XXXXXXXXXXX · <a href="#" style="color:var(--muted);text-decoration:underline;">Privacy Policy</a> · <a href="#" style="color:var(--muted);text-decoration:underline;">Cookie Policy</a></p>
+      <div class="social-links">
+        <div class="social-btn" title="Instagram">📸</div>
+        <div class="social-btn" title="Facebook">👥</div>
+        <div class="social-btn" title="LinkedIn">💼</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== JS ==================== -->
+<script>
+// Mobile menu
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// FAQ accordion
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Form submit simulation
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+  const privacy = document.getElementById('privacy').checked;
+  if (!fname || !contact) {
+    alert('Compila almeno il nome e il tuo contatto (email o telefono).');
+    return;
+  }
+  if (!privacy) {
+    alert('Per procedere, accetta il trattamento dei dati personali.');
+    return;
+  }
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Sticky nav shrink
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 60) {
+    nav.style.padding = '12px 0';
+  } else {
+    nav.style.padding = '18px 0';
+  }
+});
+</script>
+</body>
+</html>
